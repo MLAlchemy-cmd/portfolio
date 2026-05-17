@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patient Monitoring Demo | Sahitya A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/demos.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="demo-nav">
+      <a href="../index.html" class="back">← Back to portfolio</a>
+    </nav>
+
+    <h1 class="demo-title">Vision-Based Patient Monitoring</h1>
+    <p class="demo-subtitle">
+      Interactive simulation of the pipeline from
+      <a href="https://github.com/MLAlchemy-cmd/vision-based-patient-monitoring-system" target="_blank" rel="noopener">vision-based-patient-monitoring-system</a>
+      — YOLOv8 + DeepSORT tracking and MobileNetV2 + GRU for fall detection.
+    </p>
+
+    <p class="demo-note">
+      Sample CCTV-style frames illustrate fall detection output. The full model runs in the GitHub notebooks with GPU inference.
+    </p>
+
+    <div class="demo-layout">
+      <div>
+        <div class="panel video-panel">
+          <h3>📹 Live feed simulation</h3>
+          <div class="controls-row">
+            <button type="button" id="btn-normal" class="active">Normal activity</button>
+            <button type="button" id="btn-fall">Fall detected</button>
+          </div>
+          <div class="camera-feed" id="camera-feed">
+            <img id="feed-image" class="feed-image" src="assets/normal-scene.png" alt="Patient monitoring camera feed" />
+            <div class="feed-hud">
+              <span class="feed-tag">WARD 3 · CAM-02 · LIVE</span>
+              <span id="model-tag" class="model-tag">YOLOv8 + DeepSORT</span>
+            </div>
+            <div id="detection-badge" class="detection-badge hidden">
+              <span class="badge-icon">⚠</span>
+              <span id="badge-text">FALL DETECTED</span>
+              <span id="badge-confidence" class="badge-conf">94%</span>
+            </div>
+            <div id="bbox-1" class="bbox">ID: P-1042</div>
+            <div id="bbox-2" class="bbox">ID: P-1087</div>
+          </div>
+
+          <div class="fall-gallery" id="fall-gallery">
+            <p class="fall-gallery-label">Fall detection examples — click to view</p>
+            <div class="fall-thumbs">
+              <button type="button" class="fall-thumb" data-fall-index="0" title="Hospital room fall">
+                <img src="assets/fall-scene-1.png" alt="Fall example 1" />
+                <span class="thumb-label">Fall #1</span>
+              </button>
+              <button type="button" class="fall-thumb" data-fall-index="1" title="Corridor fall">
+                <img src="assets/fall-scene-2.png" alt="Fall example 2" />
+                <span class="thumb-label">Fall #2</span>
+              </button>
+              <button type="button" class="fall-thumb" data-fall-index="2" title="Patient room fall">
+                <img src="assets/fall-scene-3.png" alt="Fall example 3" />
+                <span class="thumb-label">Fall #3</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel info-panel" style="margin-top:1.5rem">
+          <h3>Abnormal activity recognition</h3>
+          <p>
+            The full system also detects violent or abnormal behavior using <strong>MobileNetV2 + LSTM</strong>
+            on a custom AIRTLab dataset (350 train / 70 test samples). When triggered, alerts are sent via
+            the Twilio API with patient ID and event type — same pipeline as fall detection, after
+            YOLOv8 person detection and DeepSORT tracking.
+          </p>
+          <p class="info-metrics">
+            Reported results: <strong>82.86% accuracy</strong>, <strong>0.885 AUC</strong>, and
+            <strong>1.00 recall</strong> on the violent/abnormal class.
+          </p>
+        </div>
+
+        <div class="panel" style="margin-top:1.5rem">
+          <h3>🔬 Fall detection metrics</h3>
+          <div class="metrics-grid">
+            <div class="metric"><strong>97.27%</strong><span>Accuracy (MobileNetV2 + GRU)</span></div>
+            <div class="metric"><strong>0.97</strong><span>F1-score</span></div>
+            <div class="metric"><strong>0.96</strong><span>Precision</span></div>
+            <div class="metric"><strong>0.98</strong><span>Recall</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="panel">
+          <h3>🚨 Alert console</h3>
+          <div class="alert-log" id="alert-log">
+            <div class="alert-item">
+              <span class="alert-time">--:--</span>
+              <span class="alert-msg">System initialized. Monitoring active.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.5rem">
+          <h3>⚙️ Pipeline</h3>
+          <div class="pipeline" style="flex-direction:column;align-items:stretch">
+            <span class="pipeline-step">YOLOv8 Detection</span>
+            <span class="pipeline-arrow">↓</span>
+            <span class="pipeline-step">DeepSORT Tracking</span>
+            <span class="pipeline-arrow">↓</span>
+            <span class="pipeline-step">MobileNetV2 + GRU (Fall)</span>
+            <span class="pipeline-arrow">↓</span>
+            <span class="pipeline-step">MobileNetV2 + LSTM (AAR)</span>
+            <span class="pipeline-arrow">↓</span>
+            <span class="pipeline-step">Twilio SMS Alert</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="../js/patient-demo.js"></script>
+</body>
+</html>

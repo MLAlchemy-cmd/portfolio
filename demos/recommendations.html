@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recommendation Demo | Sahitya A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/demos.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="demo-nav">
+      <a href="../index.html" class="back">← Back to portfolio</a>
+    </nav>
+
+    <h1 class="demo-title">Multimodal Cold-Start Recommendations</h1>
+    <p class="demo-subtitle">
+      Interactive demo inspired by
+      <a href="https://github.com/MLAlchemy-cmd/Deep-learning-Recommendation-systems-for-cold-start-problems-" target="_blank" rel="noopener">MultiModal-TiSASRec</a>
+      on Amazon Beauty — text (MiniLM), image (ResNet-50), and ID fusion with gated cross-attention.
+    </p>
+
+    <p class="demo-note">
+      Simulated 100-way ranking scores for cold, few-shot, and warm item tiers. Full training runs in the GitHub Colab notebooks.
+    </p>
+
+    <div class="reco-layout">
+      <aside>
+        <div class="panel">
+          <h3>👤 User profile</h3>
+          <label for="user-select" style="font-size:0.8rem;color:var(--text-muted)">Select synthetic user</label>
+          <select id="user-select" class="select-input">
+            <option value="u1">User A — skincare enthusiast</option>
+            <option value="u2">User B — makeup focused</option>
+            <option value="u3">User C — new user (cold items)</option>
+          </select>
+          <h4 style="font-size:0.85rem;margin-bottom:0.5rem;color:var(--text-muted)">Recent history</h4>
+          <ul class="history-list" id="history-list"></ul>
+        </div>
+
+        <div class="panel" style="margin-top:1.5rem">
+          <h3>🏗️ Architecture</h3>
+          <pre class="arch-diagram">[Text proj] ─┐
+[Image proj]─┼─ Gated fusion ─► TiSASRec
+[ID embed]  ─┘     Transformer
+                      │
+                 Score @K</pre>
+        </div>
+      </aside>
+
+      <div>
+        <div class="panel">
+          <h3>🎯 Item tier (cold-start stratification)</h3>
+          <div class="tier-tabs">
+            <button type="button" class="tier-tab active" data-tier="cold">Cold (0 interactions)</button>
+            <button type="button" class="tier-tab" data-tier="few">Few-shot (1–4)</button>
+            <button type="button" class="tier-tab" data-tier="warm">Warm (≥5)</button>
+          </div>
+          <div class="product-grid" id="product-grid"></div>
+        </div>
+
+        <div class="panel" style="margin-top:1.5rem">
+          <h3>📊 NDCG@10 by modality (ablation study)</h3>
+          <div class="chart-bars" id="chart-bars"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/reco-demo.js"></script>
+</body>
+</html>

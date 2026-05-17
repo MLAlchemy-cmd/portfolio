@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Translation Platform Demo | Sahitya A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/demos.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="demo-nav">
+      <a href="../index.html" class="back">← Back to portfolio</a>
+    </nav>
+
+    <h1 class="demo-title">Real-Time Voice Translation Platform</h1>
+    <p class="demo-subtitle">
+      Multilingual live audio: speech-to-text, neural machine translation, voice synthesis, operator dashboards,
+      and non-LLM meeting summaries — powered by <strong>FastAPI</strong>, <strong>Supabase</strong>, LiveKit, and Hugging Face NLLB.
+    </p>
+
+    <p class="demo-note">
+      Interactive simulation of production-style pipelines. Scenario names and metrics are illustrative only.
+    </p>
+
+    <div class="demo-tabs">
+      <button type="button" class="demo-tab active" data-tab="pipeline">Pipeline</button>
+      <button type="button" class="demo-tab" data-tab="console">Translation console</button>
+      <button type="button" class="demo-tab" data-tab="dashboard">Monitoring dashboard</button>
+      <button type="button" class="demo-tab" data-tab="summary">Transcript summarization</button>
+    </div>
+
+    <section id="tab-pipeline" class="tab-panel active">
+      <div class="panel">
+        <h3>Voice translation pipeline</h3>
+        <p class="aside-hint">End-to-end path from microphone to translated audio and persisted session records.</p>
+        <div class="vt-pipeline">
+          <span class="pipe-node">🎤 Audio in</span>
+          <span class="pipe-arrow">→</span>
+          <span class="pipe-node">LiveKit WebRTC</span>
+          <span class="pipe-arrow">→</span>
+          <span class="pipe-node">Whisper / Scribe STT</span>
+          <span class="pipe-arrow">→</span>
+          <span class="pipe-node">FastAPI services</span>
+          <span class="pipe-arrow">→</span>
+          <span class="pipe-node">NLLB-200 (CT2)</span>
+          <span class="pipe-arrow">→</span>
+          <span class="pipe-node">TTS synthesis</span>
+          <span class="pipe-arrow">→</span>
+          <span class="pipe-node">Supabase</span>
+        </div>
+        <div class="arch-grid">
+          <div class="arch-card">
+            <h4>FastAPI backend</h4>
+            <p>REST APIs for LiveKit token minting, segment translation, TTS proxy, and summarization jobs. Edge Functions trigger inference on new audio chunks.</p>
+          </div>
+          <div class="arch-card">
+            <h4>Supabase</h4>
+            <p>Auth, session metadata, transcript segments, translation logs, dashboard metrics, and user feedback — real-time subscriptions for the operator UI.</p>
+          </div>
+          <div class="arch-card">
+            <h4>Operator dashboard</h4>
+            <p>Live room health, per-language latency, error rates, and quality feedback loops for tuning STT and translation models.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-console" class="tab-panel">
+      <div class="vt-layout">
+        <div class="vt-main">
+          <div class="panel">
+            <h3>Live translation console</h3>
+            <div class="vt-controls">
+              <label>
+                Scenario
+                <select id="scenario-select" class="select-input"></select>
+              </label>
+              <label>
+                Language pair
+                <select id="lang-pair" class="select-input" disabled></select>
+              </label>
+              <div class="controls-row">
+                <button type="button" id="btn-play" class="btn btn-primary">▶ Simulate live stream</button>
+                <button type="button" id="btn-reset" class="btn btn-ghost">Reset</button>
+              </div>
+              <label class="checkbox-label">
+                <input type="checkbox" id="speak-tts" />
+                Play translated audio (TTS)
+              </label>
+            </div>
+
+            <div class="status-bar">
+              <span><strong>WebRTC:</strong> <span id="status-livekit" class="status-pill idle">disconnected</span></span>
+              <span><strong>STT:</strong> <span id="status-stt" class="status-pill idle">idle</span></span>
+              <span><strong>NLLB:</strong> <span id="status-nllb" class="status-pill idle">idle</span></span>
+              <span><strong>Latency:</strong> <span id="status-latency">—</span></span>
+            </div>
+
+            <div class="transcript-panel">
+              <div class="transcript-col">
+                <p class="transcript-label">Partial transcript</p>
+                <div id="partial-text" class="transcript-box partial"></div>
+              </div>
+              <div class="transcript-col">
+                <p class="transcript-label">Final transcript</p>
+                <div id="final-text" class="transcript-box final"></div>
+              </div>
+              <div class="transcript-col full">
+                <p class="transcript-label">Translation output</p>
+                <div class="transcript-box translation">
+                  <span id="translation-placeholder" class="translation-placeholder">
+                    Translations append as each utterance is finalized…
+                  </span>
+                  <span id="translation-body"></span>
+                  <span id="translation-draft" class="translation-draft"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="vt-aside">
+          <div class="panel">
+            <h3>Stack</h3>
+            <ul class="stack-list">
+              <li><strong>FastAPI</strong> — inference & token APIs</li>
+              <li><strong>Supabase</strong> — auth, Postgres, realtime</li>
+              <li><strong>LiveKit</strong> — WebRTC audio rooms</li>
+              <li><strong>Whisper / Scribe</strong> — speech-to-text</li>
+              <li><strong>NLLB-200</strong> — 16+ languages</li>
+              <li><strong>Edge Functions</strong> — async workers</li>
+            </ul>
+          </div>
+          <div class="panel" style="margin-top:1rem">
+            <h3>Languages</h3>
+            <div class="lang-chips" id="lang-chips"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="tab-dashboard" class="tab-panel">
+      <div class="panel">
+        <h3>Real-time monitoring dashboard</h3>
+        <p class="aside-hint">Operator view backed by Supabase realtime — session health, throughput, and feedback.</p>
+        <div class="dash-metrics">
+          <div class="dash-metric"><strong id="dash-rooms">12</strong><span>Active rooms</span></div>
+          <div class="dash-metric"><strong id="dash-segments">0</strong><span>Segments / min</span></div>
+          <div class="dash-metric"><strong id="dash-latency">—</strong><span>Avg translate latency</span></div>
+          <div class="dash-metric"><strong id="dash-errors">0</strong><span>Errors (1h)</span></div>
+        </div>
+        <div class="dash-grid">
+          <div class="dash-card">
+            <h4>Live sessions</h4>
+            <table class="dash-table">
+              <thead>
+                <tr><th>Room</th><th>Languages</th><th>Status</th><th>Latency</th></tr>
+              </thead>
+              <tbody id="dash-sessions">
+                <tr><td>room-alpha</td><td>EN → ES</td><td><span class="status-pill live">live</span></td><td>340 ms</td></tr>
+                <tr><td>room-beta</td><td>HI → EN</td><td><span class="status-pill live">live</span></td><td>290 ms</td></tr>
+                <tr><td>room-gamma</td><td>FR → EN</td><td><span class="status-pill idle">idle</span></td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="dash-card">
+            <h4>Feedback loop</h4>
+            <ul class="feedback-list" id="dash-feedback">
+              <li class="feedback-item good">EN→ES quality rated helpful</li>
+              <li class="feedback-item">HI→EN STT retry succeeded</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-summary" class="tab-panel">
+      <div class="vt-layout">
+        <div class="panel">
+          <h3>Transcript summarization (non-LLM)</h3>
+          <p class="aside-hint">
+            Extractive pipeline over finalized segments — topic clustering, speaker turns, action-item detection,
+            and key-phrase ranking without a generative LLM.
+          </p>
+          <div class="controls-row" style="margin-bottom:1rem">
+            <button type="button" id="btn-summarize" class="btn btn-primary">Generate summary from last run</button>
+          </div>
+          <div id="insights-panel" class="insights-panel">
+            <p class="insights-empty">Run a scenario in the Translation console, then generate a summary here.</p>
+          </div>
+        </div>
+        <aside class="vt-aside">
+          <div class="panel">
+            <h3>Summary pipeline</h3>
+            <div class="vt-pipeline" style="flex-direction:column;align-items:stretch">
+              <span class="pipe-node">Segment store (Supabase)</span>
+              <span class="pipe-arrow">↓</span>
+              <span class="pipe-node">Tokenize & chunk</span>
+              <span class="pipe-arrow">↓</span>
+              <span class="pipe-node">TF-IDF / RAKE keywords</span>
+              <span class="pipe-arrow">↓</span>
+              <span class="pipe-node">Speaker diarization tags</span>
+              <span class="pipe-arrow">↓</span>
+              <span class="pipe-node">Structured JSON insights</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <script src="../js/voice-translation-demo.js"></script>
+</body>
+</html>

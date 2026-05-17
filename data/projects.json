@@ -1,0 +1,125 @@
+[
+  {
+    "id": "vision-monitoring",
+    "name": "Vision-Based Patient Monitoring",
+    "repo": "vision-based-patient-monitoring-system",
+    "language": "Jupyter Notebook",
+    "featured": true,
+    "hasDemo": true,
+    "demoPath": "demos/patient-monitoring.html",
+    "tags": ["Computer Vision", "YOLOv8", "Deep Learning", "Healthcare"],
+    "description": "Non-intrusive real-time monitoring for fall detection and abnormal activity in psychiatric and elderly care using YOLOv8, DeepSORT, MobileNetV2, and LSTM/GRU."
+  },
+  {
+    "id": "voice-translation",
+    "name": "Real-Time Voice Translation Platform",
+    "repo": "portfolio",
+    "language": "FastAPI · Supabase",
+    "featured": true,
+    "hasDemo": true,
+    "demoPath": "demos/voice-translation.html",
+    "tags": ["FastAPI", "Supabase", "LiveKit", "NLLB", "Speech AI"],
+    "description": "Multilingual live audio pipelines: WebRTC ingestion, speech-to-text, NLLB translation, TTS, Supabase-backed operator dashboards, and non-LLM transcript summarization."
+  },
+  {
+    "id": "dl-recommendations",
+    "name": "Multimodal Cold-Start Recommendations",
+    "repo": "Deep-learning-Recommendation-systems-for-cold-start-problems-",
+    "language": "Jupyter Notebook",
+    "featured": true,
+    "hasDemo": true,
+    "demoPath": "demos/recommendations.html",
+    "tags": ["Deep Learning", "TiSASRec", "NLP", "Recommender Systems"],
+    "description": "MultiModal-TiSASRec fusing text (MiniLM), image (ResNet-50), and ID embeddings with gated cross-attention for Amazon Beauty cold-start recommendation."
+  },
+  {
+    "id": "cyclegan-denoising",
+    "name": "Document Denoising with CycleGAN",
+    "repo": "Document-Denoising-using-CycleGAN",
+    "language": "Jupyter Notebook",
+    "featured": true,
+    "hasDemo": false,
+    "tags": ["GAN", "Computer Vision", "OCR"],
+    "description": "CycleGAN-based restoration of scanned documents to remove noise and artifacts and improve OCR performance."
+  },
+  {
+    "id": "gender-debiasing",
+    "name": "Gender Debiasing Bollywood Plots",
+    "repo": "GenderDebiasing-BollywoodPlots",
+    "language": "Jupyter Notebook",
+    "featured": true,
+    "hasDemo": false,
+    "tags": ["NLP", "Fairness", "Word Embeddings"],
+    "description": "Analyze, detect, and mitigate gender bias in Bollywood movie plot summaries using NLP and embedding debiasing."
+  },
+  {
+    "id": "promotion-optimization",
+    "name": "Promotion Optimization (Time Series)",
+    "repo": "A-Time-Series-Regression-Approach-to-Promotion-Optimization",
+    "language": "Jupyter Notebook",
+    "featured": true,
+    "hasDemo": false,
+    "tags": ["Time Series", "SARIMAX", "GLM"],
+    "description": "Gamma GLM and SARIMAX forecasting to analyze promotional impact and revenue trends in UK online retail data."
+  },
+  {
+    "id": "dataxplore",
+    "name": "DataXplore",
+    "repo": "dataxplore",
+    "language": "Jupyter Notebook",
+    "featured": false,
+    "hasDemo": false,
+    "tags": ["EDA", "OCR", "Collaborative Filtering"],
+    "description": "End-to-end EDA, OCR with EasyOCR and PyTesseract, and an ETL-powered collaborative filtering recommender."
+  },
+  {
+    "id": "powerbi-dashboard",
+    "name": "Data Professional Survey Dashboard",
+    "repo": "Data-professional-survey-dashboard",
+    "language": "Power BI",
+    "featured": false,
+    "hasDemo": false,
+    "tags": ["Power BI", "Visualization"],
+    "description": "Interactive Power BI dashboard analyzing insights from a data professional survey."
+  },
+  {
+    "id": "eeg-ssl",
+    "name": "RAER — EEG Self-Supervised Learning",
+    "repo": "RAER---EEG-DATA",
+    "language": "Jupyter Notebook",
+    "featured": false,
+    "hasDemo": false,
+    "tags": ["EEG", "Self-Supervised Learning"],
+    "description": "Self-supervised learning approaches applied to EEG data."
+  },
+  {
+    "id": "mental-health-bot",
+    "name": "Mental Health Assistant Bot",
+    "repo": "hackathon-ai-and-ml",
+    "language": "Python",
+    "featured": false,
+    "hasDemo": false,
+    "tags": ["NLP", "Chatbot", "Healthcare"],
+    "description": "AI-powered mental health assistant developed for a hackathon."
+  },
+  {
+    "id": "ocr",
+    "name": "Optical Character Recognition",
+    "repo": "Optical-Character-Recognition",
+    "language": "Python",
+    "featured": false,
+    "hasDemo": false,
+    "tags": ["OCR", "Computer Vision"],
+    "description": "Optical character recognition pipeline and experiments."
+  },
+  {
+    "id": "algorithms-2023",
+    "name": "A December of Algorithms 2023",
+    "repo": "A-December-Of-Algorithms-2023",
+    "language": "Various",
+    "featured": false,
+    "hasDemo": false,
+    "tags": ["Algorithms"],
+    "description": "Daily algorithm implementations throughout December — certificate challenge collection."
+  }
+]
