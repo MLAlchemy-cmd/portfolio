@@ -13,6 +13,20 @@ function renderTags(tags) {
   return tags.map((t) => `<span class="tag">${t}</span>`).join("");
 }
 
+function renderDocLinks(project) {
+  const links = [];
+  if (project.posterPath) {
+    links.push(`<span class="doc-chip"><a href="${project.posterPath}" target="_blank" rel="noopener" class="doc-link">Poster</a></span>`);
+  }
+  if (project.reportPath) {
+    links.push(`<span class="doc-chip"><a href="${project.reportPath}" target="_blank" rel="noopener" class="doc-link">Report</a></span>`);
+  }
+  if (project.deckPath) {
+    links.push(`<span class="doc-chip"><a href="${project.deckPath}" target="_blank" rel="noopener" class="doc-link">Deck</a></span>`);
+  }
+  return links.join("");
+}
+
 function featuredPreview(p) {
   if (p.id === "vision-monitoring") {
     return {
@@ -23,16 +37,25 @@ function featuredPreview(p) {
       </div>`,
     };
   }
+
   if (p.id === "voice-translation") {
     return {
       className: "voice",
       inner: `<div class="vt-preview">
-        <div class="vt-preview-line"><span>EN → ES</span><span>Live</span></div>
-        <div class="vt-preview-line"><span>FastAPI</span><span>●</span></div>
-        <div class="vt-preview-line"><span>Supabase</span><span>sync</span></div>
+        <div class="vt-header">
+          <span class="vt-badge">Live voice translation</span>
+          <span>FastAPI · Supabase · LiveKit</span>
+        </div>
+        <div class="vt-dashboard-grid">
+          <div class="vt-dashboard-item"><strong>4</strong><span>Active channels</span></div>
+          <div class="vt-dashboard-item"><strong>98%</strong><span>Speech accuracy</span></div>
+          <div class="vt-dashboard-item"><strong>EN → ES</strong><span>Realtime flow</span></div>
+        </div>
+        <div class="vt-wave"><span class="vt-wave-icon">🎙️</span><span>Microphone capture → translation → operator dashboard</span></div>
       </div>`,
     };
   }
+
   return {
     className: "reco",
     inner: `<div class="reco-preview-items">
@@ -49,7 +72,7 @@ function renderFeatured(projects) {
   grid.innerHTML = featured
     .map((p) => {
       const { className, inner } = featuredPreview(p);
-      const githubLink = `<a href="${repoUrl(p.repo)}" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>`;
+      const githubLink = p.repo ? `<a href="${repoUrl(p.repo)}" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>` : "";
 
       return `
         <article class="featured-card">
@@ -80,6 +103,7 @@ function renderProjects(projects) {
         ? `<a href="${repoUrl(p.repo)}" target="_blank" rel="noopener">Repository</a>`
         : "";
       const demoLink = p.hasDemo ? `<a href="${p.demoPath}">Live demo</a>` : "";
+      const docs = renderDocLinks(p);
 
       return `
       <article class="project-card">
@@ -92,6 +116,7 @@ function renderProjects(projects) {
         <div class="project-links">
           ${repoLink}
           ${demoLink}
+          ${docs}
         </div>
       </article>`;
     })

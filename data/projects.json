@@ -19,7 +19,8 @@
     "hasDemo": true,
     "demoPath": "demos/voice-translation.html",
     "tags": ["FastAPI", "Supabase", "LiveKit", "NLLB", "Speech AI"],
-    "description": "Multilingual live audio pipelines: WebRTC ingestion, speech-to-text, NLLB translation, TTS, Supabase-backed operator dashboards, and non-LLM transcript summarization."
+    "description": "Multilingual live audio pipelines: WebRTC ingestion, speech-to-text, NLLB translation, TTS, Supabase-backed operator dashboards, and non-LLM transcript summarization.",
+    "reportPath": "assets/voice-translation-report.pdf"
   },
   {
     "id": "dl-recommendations",
@@ -60,7 +61,8 @@
     "featured": true,
     "hasDemo": false,
     "tags": ["Time Series", "SARIMAX", "GLM"],
-    "description": "Gamma GLM and SARIMAX forecasting to analyze promotional impact and revenue trends in UK online retail data."
+    "description": "Gamma GLM and SARIMAX forecasting to analyze promotional impact and revenue trends in UK online retail data.",
+    "reportPath": "assets/promotion-optimization-sarimax-report.pdf"
   },
   {
     "id": "dataxplore",
@@ -90,7 +92,9 @@
     "featured": false,
     "hasDemo": false,
     "tags": ["EEG", "Self-Supervised Learning"],
-    "description": "Self-supervised learning approaches applied to EEG data."
+    "description": "Self-supervised learning approaches applied to EEG data.",
+    "posterPath": "assets/raer-poster.pdf",
+    "reportPath": "assets/raer-report.pdf"
   },
   {
     "id": "mental-health-bot",
@@ -111,6 +115,26 @@
     "hasDemo": false,
     "tags": ["OCR", "Computer Vision"],
     "description": "Optical character recognition pipeline and experiments."
+  },
+  {
+    "id": "database-project",
+    "name": "Database Architecture Project",
+    "language": "SQL & Data Modeling",
+    "featured": false,
+    "hasDemo": false,
+    "tags": ["Database", "SQL", "Documentation"],
+    "description": "Core database planning and schema design. No code demo is available; full report is attached.",
+    "reportPath": "assets/database-project-report.pdf"
+  },
+  {
+    "id": "neurocalm",
+    "name": "NeuroCalm Project Deck",
+    "language": "Research Deck",
+    "featured": false,
+    "hasDemo": false,
+    "tags": ["Research", "Mental Health", "Deck"],
+    "description": "NeuroCalm project summary deck, including product flow, model strategy, and research insights.",
+    "deckPath": "assets/neurocalm-deck.pdf"
   },
   {
     "id": "algorithms-2023",
