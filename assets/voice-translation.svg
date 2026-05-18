@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 64" role="img" aria-labelledby="voiceTitle" preserveAspectRatio="xMidYMid meet">
+  <title id="voiceTitle">Voice translation illustration</title>
+  <rect x="10" y="14" width="40" height="28" rx="6" fill="rgba(56, 189, 248, 0.1)" stroke="#38bdf8" stroke-width="3"/>
+  <path d="M24 26h16" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M24 34h12" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="60" cy="32" r="10" fill="rgba(167, 139, 250, 0.12)" stroke="#a78bfa" stroke-width="3"/>
+  <path d="M54 28l4 4 6-6" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M6 40c0 7.732 6.268 14 14 14h4" fill="none" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+  <path d="M34 54h12" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+</svg>

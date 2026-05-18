@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="micTitle" preserveAspectRatio="xMidYMid meet">
+  <title id="micTitle">Microphone icon</title>
+  <g fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10c-5.523 0-10 4.477-10 10v14c0 5.523 4.477 10 10 10s10-4.477 10-10V20c0-5.523-4.477-10-10-10z"/>
+    <path d="M22 34v4c0 5.523 4.477 10 10 10s10-4.477 10-10v-4"/>
+    <path d="M20 38H44"/>
+    <path d="M24 50h16v8H24z"/>
+    <path d="M32 58V46"/>
+  </g>
+</svg>
