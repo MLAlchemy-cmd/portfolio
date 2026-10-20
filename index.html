@@ -1,119 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sahitya A — Data Science & Machine Learning portfolio. MSDS @ UMN. Computer vision, recommender systems, NLP." />
-  <title>Sahitya A | ML & Data Science Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Sahitya Avadhanam — MS Data Science at UMN, graduating May 2027. Explore machine learning, multimodal systems, healthcare research, and interactive project walkthroughs.">
+<meta name="theme-color" content="#f8f7f3">
+<title>Sahitya Avadhanam · Data, models & useful things</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f7f3;--ink:#20252a;--muted:#62676d;--panel:#fff;--line:#dedfd9;--purple:#e3dbfa;--teal:#245e56;--lime:#e5f3bd;--soft:#f0ede5;--accent:#7655bc;--shadow:0 16px 50px #28243b0b}
+[data-theme=dark]{--bg:#151b1b;--ink:#f3f2ed;--muted:#aebbb7;--panel:#202a28;--line:#3a4945;--purple:#463a61;--teal:#b9e8d6;--lime:#334b32;--soft:#2d3632;--accent:#d1b3ff;--shadow:0 16px 50px #0002}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:105px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "DM Sans",sans-serif}h1,h2,h3,.brand{font-family:"Space Grotesk",sans-serif;line-height:1.1;letter-spacing:-.045em}a{color:inherit;text-underline-offset:4px}button,input{font:inherit}button,a,input{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:default;opacity:.6}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}::selection{background:var(--purple)}.wrap{max-width:1220px;margin:auto;padding:0 30px}.skip{position:absolute;left:15px;top:-70px;background:var(--panel);padding:12px;z-index:99}.skip:focus{top:10px}nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}.nav{min-height:83px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{text-decoration:none;font-weight:700;font-size:23px;letter-spacing:-1px}.brand span{color:var(--accent)}.navlinks{display:flex;align-items:center;gap:24px;font-size:14px}.navlinks a{text-decoration:none}.iconbtn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:50%;width:40px;height:40px}.hero{padding:82px 0 42px;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}.eyebrow{font-size:11px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}.dot{width:8px;height:8px;background:#51835f;border-radius:50%;box-shadow:0 0 0 5px #51835f18}h1{font-size:clamp(50px,6.4vw,86px);font-weight:500;margin:26px 0}h1 em{font-style:normal;color:var(--teal);position:relative}h1 em:after{content:"";position:absolute;left:0;bottom:-5px;width:100%;height:6px;background:var(--purple);z-index:-1}.lead{max-width:510px;color:var(--muted);font-size:18px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;gap:10px;align-items:center;justify-content:center;min-height:47px;padding:11px 20px;border:1px solid var(--ink);border-radius:100px;text-decoration:none;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;transition:transform .2s}.btn:hover{transform:translateY(-3px)}.btn.secondary{background:transparent;color:var(--ink);border-color:var(--line)}.hero-note{font-size:12px;color:var(--muted);margin-top:20px}.stage{position:relative;min-height:440px;border-radius:32px;background:var(--purple);padding:28px;overflow:hidden;isolation:isolate}.stage:before{content:"";position:absolute;width:380px;height:380px;border:1px solid #fff8;border-radius:50%;top:100px;left:100px}.stage:after{content:"";position:absolute;width:300px;height:300px;border:1px solid #fff8;border-radius:50%;top:140px;left:140px;z-index:-1}.stage-label{font-size:11px;letter-spacing:.17em;font-weight:700}.profile{display:flex;align-items:center;gap:14px;margin-top:38px}.avatar{width:78px;height:78px;object-fit:cover;border-radius:24px;border:4px solid #fff8}.profile strong{display:block;font-family:"Space Grotesk";font-size:22px;letter-spacing:-.04em}.profile small{color:var(--muted)}.console{background:#23362f;color:#e7f5eb;border-radius:18px;padding:22px;margin-top:25px;box-shadow:0 15px 30px #23362f25;transform:rotate(-2deg);animation:float 7s ease-in-out infinite}.console-top{display:flex;gap:5px;margin-bottom:24px}.console-top i{width:7px;height:7px;border-radius:50%;background:#cee4b1}.console-top i:nth-child(2){background:#d6b8f0}.console-top i:nth-child(3){background:#ffb9a0}.code{font:13px/2 monospace}.code span{color:#d7b9fc}.code b{color:#cde69c;font-weight:400}.cursor{display:inline-block;width:7px;height:14px;background:#cde69c;vertical-align:middle;animation:blink 1.3s steps(2,start) infinite}.floating{position:absolute;right:20px;bottom:26px;background:var(--lime);padding:12px 20px;border-radius:14px;box-shadow:var(--shadow);font-size:13px;transform:rotate(5deg);animation:float 5s ease-in-out infinite}.spark{position:absolute;right:37px;top:58px;font-size:36px;animation:spin 18s linear infinite}.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;display:flex;justify-content:space-between;gap:20px;font-size:13px;color:var(--muted)}.strip strong{color:var(--ink);font-weight:600}section{padding:75px 0 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:26px}h2{font-size:clamp(32px,4vw,48px);font-weight:500;margin:12px 0}.section-head p{max-width:370px;color:var(--muted);font-size:14px}.tour{display:grid;grid-template-columns:.65fr 1.35fr;background:var(--panel);border:1px solid var(--line);border-radius:25px;overflow:hidden}.tour-tabs{padding:27px;background:var(--soft);display:flex;flex-direction:column;gap:10px}.tour-tab{background:transparent;border:1px solid transparent;padding:14px 16px;border-radius:11px;text-align:left;color:var(--muted)}.tour-tab[aria-selected=true]{background:var(--panel);border-color:var(--line);color:var(--ink)}.tour-content{padding:38px;min-height:290px}.tour-content h3{font-size:30px;margin:0 0 16px}.tour-content p{color:var(--muted);max-width:650px}.micro{font-size:12px;color:var(--muted)}.tour-controls{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}.filters{display:flex;gap:9px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:50px;padding:8px 15px;font-size:13px}.filter[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}.tools{display:flex;gap:20px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:25px 0}.search{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:50px;padding:10px 17px;min-width:220px}.results-note{font-size:12px;color:var(--muted);margin-bottom:18px}.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.project{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}.project:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.project-art{height:130px;position:relative;overflow:hidden;background:var(--purple);display:flex;align-items:center;justify-content:center}.project:nth-child(3n+2) .project-art{background:var(--lime)}.project:nth-child(3n) .project-art{background:var(--soft)}.art-glyph{font:42px "Space Grotesk";letter-spacing:-.08em;color:var(--teal);opacity:.85}.art-line{position:absolute;width:180px;height:180px;border:1px solid currentColor;opacity:.12;transform:rotate(25deg);border-radius:35px;right:-25px;top:15px}.project-body{padding:23px;display:flex;flex-direction:column;flex:1}.project h3{font-size:23px;line-height:1.18;margin:12px 0}.project p{font-size:13px;color:var(--muted);margin-bottom:20px}.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{font-size:10px;letter-spacing:.02em;padding:4px 8px;border-radius:5px;background:var(--soft)}.project-bottom{margin-top:auto;display:flex;gap:13px;flex-wrap:wrap;align-items:center;font-size:12px}.textbtn{border:0;background:transparent;color:var(--ink);padding:0;font-size:12px;font-weight:600;text-decoration:underline;text-underline-offset:4px}.status{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.journey{display:grid;grid-template-columns:1fr 1fr;gap:20px}.experience{padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}.experience h3{font-size:21px;margin:10px 0}.experience p{font-size:14px;color:var(--muted)}.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.skill-group{border-top:1px solid var(--line);padding-top:18px}.skill-group h3{font-size:18px;margin:0 0 16px}.skill-group .chip{font-size:12px;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel)}.contact{margin:80px 0 40px;padding:55px;border-radius:28px;background:var(--lime);display:flex;justify-content:space-between;align-items:center;gap:30px}.contact h2{margin:0 0 15px}.contact p{font-size:14px;color:var(--muted)}footer{border-top:1px solid var(--line);padding:23px 0 35px;display:flex;justify-content:space-between;gap:20px;font-size:12px;color:var(--muted)}dialog{border:1px solid var(--line);border-radius:24px;background:var(--panel);color:var(--ink);max-width:720px;width:calc(100% - 30px);padding:32px;max-height:85vh}dialog::backdrop{background:#1119;backdrop-filter:blur(4px)}dialog h2{font-size:34px}dialog h3{font-size:18px;letter-spacing:-.02em;margin-top:26px}dialog p{color:var(--muted)}.dialog-top{display:flex;justify-content:space-between;align-items:center}.reveal{animation:appear .7s ease both}@keyframes float{50%{translate:0 -9px}}@keyframes blink{50%{opacity:0}}@keyframes spin{to{rotate:360deg}}@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}@media(max-width:950px){.hero{gap:30px}.stage{min-height:390px;padding:22px}.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.navlinks{gap:14px}.hero h1{font-size:59px}.console{padding:15px}.code{font-size:11px}.floating{bottom:17px}}@media(max-width:680px){.wrap{padding:0 20px}.nav{min-height:76px;gap:10px;flex-wrap:wrap;padding-top:13px;padding-bottom:13px}.navlinks{gap:14px;font-size:12px}.navlinks .desktop{display:none}.brand{font-size:19px}.hero{grid-template-columns:1fr;padding-top:45px;gap:35px}.hero h1{font-size:58px}.stage{min-height:385px}.lead{font-size:16px}.strip{flex-direction:column;gap:6px}.section-head{display:block}.tour{grid-template-columns:1fr}.tour-tabs{flex-direction:row;padding:15px;gap:4px;flex-wrap:wrap}.tour-tab{padding:8px;font-size:12px}.tour-content{padding:24px}.projects,.journey{grid-template-columns:1fr}.skills{grid-template-columns:1fr}.contact{padding:30px;display:block}.contact .actions{margin-top:20px}section{padding-top:55px}footer{flex-direction:column;gap:5px}.search{width:100%}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#" class="logo">
-        <img src="https://avatars.githubusercontent.com/u/113616944?v=4" alt="Sahitya A" width="36" height="36" />
-        Sahitya A
-      </a>
-      <ul class="nav-links">
-        <li><a href="#featured">Demos</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Main navigation"><div class="wrap nav">
+<a class="brand" href="#">sahitya<span>.</span></a>
+<div class="navlinks"><a href="#projects">Work</a><a href="#story">My story</a><a href="#skills" class="desktop">Toolkit</a><a href="#contact">Contact</a><button class="iconbtn" id="theme" aria-label="Switch to dark theme">◐</button></div>
+</div></nav>
+<main id="main" class="wrap">
+<header class="hero">
+<div class="reveal"><div class="eyebrow"><span class="dot"></span> MS Data Science · UMN · May 2027</div>
+<h1>Curious mind.<br>Thoughtful models.<br><em>Useful things.</em></h1>
+<p class="lead">Hi, I'm Sahitya. I explore how machine learning can turn complex data into something people can understand and use.</p>
+<div class="actions"><a class="btn" href="#projects">Explore my work ↗</a><a class="btn secondary" href="#tour">Take a guided tour ▷</a></div>
+<p class="hero-note">Healthcare research · Multimodal learning · AI applications</p></div>
+<div class="stage reveal" aria-label="Sahitya's research and engineering workspace">
+<div class="stage-label">A SMALL WINDOW INTO MY WORLD</div><span class="spark" aria-hidden="true">✳</span>
+<div class="profile"><img class="avatar" src="https://avatars.githubusercontent.com/u/113616944?v=4" alt="Sahitya's GitHub profile avatar" width="78" height="78"><div><strong>Sahitya Avadhanam</strong><small>Researcher. Builder. Always learning.</small></div></div>
+<div class="console" aria-hidden="true"><div class="console-top"><i></i><i></i><i></i></div><div class="code"><span>question</span> = "What could work better?"<br><span>approach</span> = [data, models, evaluation]<br><b>learn → build → test → repeat</b><br><span class="cursor"></span></div></div>
+<div class="floating">✦ From research to working software</div></div>
+</header>
+<div class="strip"><span><strong>Currently</strong> · Research Assistant, UMN School of Public Health</span><span><strong>Looking ahead</strong> · AI / ML & data science opportunities in 2027</span></div>
 
-  <header class="hero container">
-    <div class="hero-badge">MSDS @ University of Minnesota</div>
-    <h1>Building <span>intelligent systems</span><br />from data & vision</h1>
-    <p class="hero-lead">
-      Data scientist and ML engineer focused on computer vision, recommender systems, and NLP.
-      Explore interactive demos of my research-grade projects on GitHub.
-    </p>
-    <div class="hero-actions">
-      <a href="#featured" class="btn btn-primary">Try live demos</a>
-      <a href="https://github.com/MLAlchemy-cmd" target="_blank" rel="noopener" class="btn btn-ghost">GitHub profile</a>
-    </div>
-    <div class="hero-feature-grid">
-      <article class="hero-feature hero-feature-image-card">
-        <img src="assets/mic.svg" alt="Microphone illustration" class="hero-feature-image" />
-        <div class="hero-feature-copy">
-          <h3>Live voice translation</h3>
-          <p>Microphone-powered subtitles, live language translation, and a polished operator dashboard preview on the landing page.</p>
-        </div>
-      </article>
-      <article class="hero-feature hero-feature-image-card">
-        <img src="assets/voice-translation.svg" alt="Voice translation illustration" class="hero-feature-image" />
-        <div class="hero-feature-copy">
-          <h3>Classy operator dashboard</h3>
-          <p>High-contrast UI for monitoring live sessions, translation status, and system performance at a glance.</p>
-        </div>
-      </article>
-    </div>
-    <div class="stats">
-      <div class="stat-card"><strong>19</strong><span>Public repositories</span></div>
-      <div class="stat-card"><strong>3</strong><span>Interactive demos</span></div>
-      <div class="stat-card"><strong>CV + NLP</strong><span>Core focus areas</span></div>
-    </div>
-  </header>
+<section id="tour" aria-labelledby="tour-heading"><div class="section-head"><div><div class="eyebrow">01 / MEET THE PERSON</div><h2 id="tour-heading">A tour, at your pace.</h2></div><p>Pick a chapter. Read the transcript or listen with your browser's voice. Sound starts only when you choose.</p></div>
+<div class="tour"><div class="tour-tabs" role="tablist" aria-label="Portfolio tour"><button class="tour-tab" id="chapter-tab-0" role="tab" aria-controls="chapter" aria-selected="true" tabindex="0" data-chapter="0">01 &nbsp; Hello, I'm Sahitya</button><button class="tour-tab" id="chapter-tab-1" role="tab" aria-controls="chapter" aria-selected="false" tabindex="-1" data-chapter="1">02 &nbsp; What I build</button><button class="tour-tab" id="chapter-tab-2" role="tab" aria-controls="chapter" aria-selected="false" tabindex="-1" data-chapter="2">03 &nbsp; Research with purpose</button><button class="tour-tab" id="chapter-tab-3" role="tab" aria-controls="chapter" aria-selected="false" tabindex="-1" data-chapter="3">04 &nbsp; What's next</button></div>
+<div class="tour-content" id="chapter" role="tabpanel" aria-labelledby="chapter-tab-0" tabindex="0"><h3 id="chapter-title"></h3><p id="transcript"></p><div class="tour-controls"><button class="btn" id="listen">Listen to this chapter ▷</button><button class="btn secondary" id="stop" disabled>Stop audio</button></div><p id="audio-note" class="micro" role="status">Optional browser-generated narration; this is not a recording of my voice.</p></div></div></section>
 
-  <section id="featured" class="container">
-    <div class="section-header">
-      <h2>Featured demos</h2>
-      <p>Interactive walkthroughs — patient monitoring, cold-start recommendations, and real-time voice translation with FastAPI & Supabase.</p>
-    </div>
-    <div class="featured-grid" id="featured-grid"></div>
-  </section>
+<section id="projects" aria-labelledby="projects-heading"><div class="section-head"><div><div class="eyebrow">02 / SELECTED EXPLORATIONS</div><h2 id="projects-heading">Different problems.<br>The same curiosity.</h2></div><p>Explore the models, methods, and software behind my work. Open a project to see the approach and its practical limits.</p></div>
+<div class="tools"><div class="filters" role="group" aria-label="Project categories"><button class="filter" data-filter="All" aria-pressed="true">All work</button><button class="filter" data-filter="AI & NLP" aria-pressed="false">AI & NLP</button><button class="filter" data-filter="Vision" aria-pressed="false">Vision</button><button class="filter" data-filter="Healthcare" aria-pressed="false">Healthcare</button><button class="filter" data-filter="Analytics" aria-pressed="false">Analytics</button><button class="filter" data-filter="Walkthroughs" aria-pressed="false">Walkthroughs</button></div><input id="search" class="search" type="search" aria-label="Search projects or technologies" placeholder="Search projects or tools…"></div>
+<p class="results-note" id="count" aria-live="polite"></p><div class="projects" id="project-grid"></div><noscript><p>Enable JavaScript for filters and case studies, or <a href="https://github.com/MLAlchemy-cmd?tab=repositories">browse all projects on GitHub</a>.</p></noscript></section>
 
-  <section id="projects" class="container">
-    <div class="section-header">
-      <h2>All projects</h2>
-      <p>Selected work from <a href="https://github.com/MLAlchemy-cmd" target="_blank" rel="noopener">@MLAlchemy-cmd</a> on GitHub.</p>
-    </div>
-    <div class="projects-grid" id="projects-grid"></div>
-  </section>
+<section id="story" aria-labelledby="story-heading"><div class="section-head"><div><div class="eyebrow">03 / THE THREAD THROUGH MY WORK</div><h2 id="story-heading">Data meets real questions.</h2></div><p>My interests connect research, model development, and the engineering that makes results usable.</p></div>
+<div class="journey"><article class="experience"><div class="status">June 2026 — Present · Research</div><h3>University of Minnesota<br>School of Public Health</h3><p>I analyze public-health and demographic data to study digital health engagement, rurality, and healthcare disparities. My work combines reproducible analysis, survey methods, and geographic context.</p><div class="chips"><span class="chip">Python & R</span><span class="chip">HINTS</span><span class="chip">Public health</span></div></article>
+<article class="experience"><div class="status">January — April 2026 · AI fellowship</div><h3>OViIE AI<br>Multilingual voice systems</h3><p>I contributed to STELLA, working across speech processing, translation, inference services, and application infrastructure. It brought model behavior and software delivery into the same conversation.</p><div class="chips"><span class="chip">FastAPI</span><span class="chip">Speech AI</span><span class="chip">Supabase</span></div></article>
+<article class="experience"><div class="status">2024 — 2025 · Applied engineering</div><h3>Signals, documents<br>and practical interfaces</h3><p>My internships included physiological-signal stress detection, financial-statement extraction, and GAN-based document denoising—different inputs, with a shared need for reliable processing.</p><div class="chips"><span class="chip">Flask & React</span><span class="chip">OCR</span><span class="chip">PyTorch</span></div></article>
+<article class="experience"><div class="status">Education · Expected May 2027</div><h3>M.S. Data Science<br>University of Minnesota</h3><p>My graduate work spans deep learning, machine learning for healthcare, regression, and databases. I previously earned a B.Tech in Artificial Intelligence & Data Science from SVCE, Anna University.</p><div class="chips"><span class="chip">Deep learning</span><span class="chip">Statistics</span><span class="chip">Data systems</span></div></article></div></section>
 
-  <section id="skills" class="container">
-    <div class="section-header">
-      <h2>Skills & tools</h2>
-    </div>
-    <div class="skills-grid">
-      <span class="skill-pill">Python</span>
-      <span class="skill-pill">PyTorch</span>
-      <span class="skill-pill">TensorFlow</span>
-      <span class="skill-pill">Computer Vision</span>
-      <span class="skill-pill">YOLO / DeepSORT</span>
-      <span class="skill-pill">Transformers</span>
-      <span class="skill-pill">Recommender Systems</span>
-      <span class="skill-pill">Time Series (SARIMAX)</span>
-      <span class="skill-pill">NLP / Sentence-BERT</span>
-      <span class="skill-pill">GANs (CycleGAN)</span>
-      <span class="skill-pill">Jupyter</span>
-      <span class="skill-pill">Power BI</span>
-      <span class="skill-pill">SQL & ETL</span>
-      <span class="skill-pill">Google Colab / GPU</span>
-      <span class="skill-pill">FastAPI</span>
-      <span class="skill-pill">Supabase</span>
-      <span class="skill-pill">LiveKit / WebRTC</span>
-      <span class="skill-pill">Speech AI (Whisper)</span>
-    </div>
-  </section>
-
-  <section id="contact" class="container">
-    <div class="contact-box">
-      <h2>Let's connect</h2>
-      <p>Open to collaborations, research, and data science roles.</p>
-      <a href="https://github.com/MLAlchemy-cmd" target="_blank" rel="noopener" class="btn btn-primary">View GitHub</a>
-    </div>
-  </section>
-
-  <footer class="footer container">
-    <p>&copy; 2026 Sahitya A · Built with data from <a href="https://github.com/MLAlchemy-cmd">GitHub</a></p>
-  </footer>
-
-  <script src="js/main.js"></script>
+<section id="skills" aria-labelledby="skills-heading"><div class="section-head"><div><div class="eyebrow">04 / THE TOOLKIT</div><h2 id="skills-heading">Tools follow the problem.</h2></div><p>The technologies I use across research, modeling, and application development.</p></div>
+<div class="skills"><div class="skill-group"><h3>Models & learning</h3><div class="chips"><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Transformers</span><span class="chip">scikit-learn</span><span class="chip">FAISS</span><span class="chip">Computer vision</span><span class="chip">RAG</span></div></div><div class="skill-group"><h3>Data & analysis</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">PostgreSQL</span><span class="chip">Survey methods</span><span class="chip">Time series</span><span class="chip">Power BI</span></div></div><div class="skill-group"><h3>Software & delivery</h3><div class="chips"><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">React</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">Supabase</span><span class="chip">Git & Linux</span></div></div></div></section>
+<section class="contact" id="contact"><div><div class="eyebrow">HAVE A PROBLEM WORTH EXPLORING?</div><h2>Let's build something useful.</h2><p>Open to AI / ML engineering, data science, and research conversations.</p></div><div class="actions"><a class="btn" href="mailto:as5668533@gmail.com">Say hello ↗</a><a class="btn secondary" href="https://www.linkedin.com/in/sahityaa2003/" target="_blank" rel="noopener">LinkedIn ↗</a></div></section>
+<footer><span>© 2026 Sahitya Avadhanam · Minneapolis, MN</span><a href="https://github.com/MLAlchemy-cmd" target="_blank" rel="noopener">Explore the code ↗</a></footer>
+</main>
+<dialog id="case-dialog" aria-labelledby="case-title"><div class="dialog-top"><span class="eyebrow">PROJECT NOTES</span><button id="close-case" class="iconbtn" aria-label="Close project details">×</button></div><div id="case-content"></div></dialog>
+<script>
+"use strict";
+const projects=[{"id":"vision-monitoring","name":"Vision-Based Patient Monitoring","repo":"vision-based-patient-monitoring-system","language":"Jupyter Notebook","featured":true,"hasDemo":true,"demoPath":"demos/patient-monitoring.html","tags":["Computer Vision","YOLOv8","Deep Learning","Healthcare"],"description":"Non-intrusive real-time monitoring for fall detection and abnormal activity in psychiatric and elderly care using YOLOv8, DeepSORT, MobileNetV2, and LSTM/GRU."},{"id":"voice-translation","name":"Real-Time Voice Translation Platform","repo":"portfolio","language":"FastAPI · Supabase","featured":true,"hasDemo":true,"demoPath":"demos/voice-translation.html","tags":["FastAPI","Supabase","LiveKit","NLLB","Speech AI"],"description":"Multilingual live audio pipelines: WebRTC ingestion, speech-to-text, NLLB translation, TTS, Supabase-backed operator dashboards, and non-LLM transcript summarization.","reportPath":"assets/voice-translation-report.pdf"},{"id":"dl-recommendations","name":"Multimodal Cold-Start Recommendations","repo":"Deep-learning-Recommendation-systems-for-cold-start-problems-","language":"Jupyter Notebook","featured":true,"hasDemo":true,"demoPath":"demos/recommendations.html","tags":["Deep Learning","TiSASRec","NLP","Recommender Systems"],"description":"MultiModal-TiSASRec fusing text (MiniLM), image (ResNet-50), and ID embeddings with gated cross-attention for Amazon Beauty cold-start recommendation."},{"id":"cyclegan-denoising","name":"Document Denoising with CycleGAN","repo":"Document-Denoising-using-CycleGAN","language":"Jupyter Notebook","featured":true,"hasDemo":false,"tags":["GAN","Computer Vision","OCR"],"description":"CycleGAN-based restoration of scanned documents to remove noise and artifacts and improve OCR performance."},{"id":"gender-debiasing","name":"Gender Debiasing Bollywood Plots","repo":"GenderDebiasing-BollywoodPlots","language":"Jupyter Notebook","featured":true,"hasDemo":false,"tags":["NLP","Fairness","Word Embeddings"],"description":"Analyze, detect, and mitigate gender bias in Bollywood movie plot summaries using NLP and embedding debiasing."},{"id":"promotion-optimization","name":"Promotion Optimization (Time Series)","repo":"A-Time-Series-Regression-Approach-to-Promotion-Optimization","language":"Jupyter Notebook","featured":true,"hasDemo":false,"tags":["Time Series","SARIMAX","GLM"],"description":"Gamma GLM and SARIMAX forecasting to analyze promotional impact and revenue trends in UK online retail data.","reportPath":"assets/promotion-optimization-sarimax-report.pdf"},{"id":"dataxplore","name":"DataXplore","repo":"dataxplore","language":"Jupyter Notebook","featured":false,"hasDemo":false,"tags":["EDA","OCR","Collaborative Filtering"],"description":"End-to-end EDA, OCR with EasyOCR and PyTesseract, and an ETL-powered collaborative filtering recommender."},{"id":"powerbi-dashboard","name":"Data Professional Survey Dashboard","repo":"Data-professional-survey-dashboard","language":"Power BI","featured":false,"hasDemo":false,"tags":["Power BI","Visualization"],"description":"Interactive Power BI dashboard analyzing insights from a data professional survey."},{"id":"eeg-ssl","name":"RAER — EEG Self-Supervised Learning","repo":"RAER---EEG-DATA","language":"Jupyter Notebook","featured":false,"hasDemo":false,"tags":["EEG","Self-Supervised Learning"],"description":"Self-supervised learning approaches applied to EEG data.","posterPath":"assets/raer-poster.pdf","reportPath":"assets/raer-report.pdf"},{"id":"mental-health-bot","name":"Mental Health Assistant Bot","repo":"hackathon-ai-and-ml","language":"Python","featured":false,"hasDemo":false,"tags":["NLP","Chatbot","Healthcare"],"description":"AI-powered mental health assistant developed for a hackathon."},{"id":"ocr","name":"Optical Character Recognition","repo":"Optical-Character-Recognition","language":"Python","featured":false,"hasDemo":false,"tags":["OCR","Computer Vision"],"description":"Optical character recognition pipeline and experiments."},{"id":"database-project","name":"Database Architecture Project","language":"SQL & Data Modeling","featured":false,"hasDemo":false,"tags":["Database","SQL","Documentation"],"description":"Core database planning and schema design. No code demo is available; full report is attached.","reportPath":"assets/database-project-report.pdf"},{"id":"neurocalm","name":"NeuroCalm Project Deck","language":"Research Deck","featured":false,"hasDemo":false,"tags":["Research","Mental Health","Deck"],"description":"NeuroCalm project summary deck, including product flow, model strategy, and research insights.","deckPath":"assets/neurocalm-deck.pdf"},{"id":"algorithms-2023","name":"A December of Algorithms 2023","repo":"A-December-Of-Algorithms-2023","language":"Various","featured":false,"hasDemo":false,"tags":["Algorithms"],"description":"Daily algorithm implementations throughout December — certificate challenge collection."}];
+const $=id=>document.getElementById(id);
+const escapeText=value=>String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const chapters=[
+{title:"Hi, I'm Sahitya.",text:"I'm a master's student in Data Science at the University of Minnesota Twin Cities, graduating in May 2027. I like working where machine learning, research, and useful software meet. This portfolio is a collection of the questions I've explored and the systems I've helped build."},
+{title:"From signals to multimodal systems.",text:"My projects include vision-based patient monitoring, multimodal cold-start recommendations, EEG representation learning, and document denoising. I work across data preparation, model development, retrieval, and interfaces. The project notes below explain the methods; the interactive walkthroughs help illustrate the workflows."},
+{title:"Research with context.",text:"As a Research Assistant in the University of Minnesota School of Public Health, I study digital health engagement and healthcare disparities using public-health and demographic datasets. This work has made me care about reproducibility, the right denominator, and what a result can actually tell us."},
+{title:"The next chapter.",text:"I'm looking for AI and machine learning engineering, data science, and research opportunities in 2027. I'm especially interested in language models, multimodal systems, and healthcare applications. If your team is working on a problem where I could contribute, I'd love to connect."}
+];
+const notes={
+"vision-monitoring":{approach:"Person detection and identity-preserving tracking feed temporal activity models. The workflow connects recognition with caregiver-alert concepts.",limit:"Research prototype. The browser walkthrough illustrates the workflow; it does not establish clinical effectiveness or run the full research model.",glyph:"↗  ◉  ↘"},
+"voice-translation":{approach:"Speech input moves through transcription, translation, synthesis, and session infrastructure. My fellowship work included inference services and Supabase-backed application components.",limit:"The linked browser experience is an interactive simulation. Its scenarios and displayed metrics are illustrative, not measurements of an active production service.",glyph:"▂ ▆ █ ▃ ▇ ▂"},
+"dl-recommendations":{approach:"Text, image, and item-identity representations are fused in a time-aware sequential recommendation model. Evaluation separates cold, few-shot, and warm items, with modality ablations.",limit:"Offline ranking experiments use sampled candidates. The browser walkthrough illustrates recommendation behavior; it is not a deployed recommender serving the trained model.",glyph:"text × image"},
+"eeg-ssl":{approach:"Self-supervised EEG representation learning explores how signal structure can support downstream retrieval and interpretation.",limit:"Research work on EEG data. This portfolio does not provide a clinical diagnostic service.",glyph:"∿ ∿ ∿"},
+"cyclegan-denoising":{approach:"CycleGAN-based image restoration explores noise removal in scanned documents, supporting readability and downstream OCR workflows.",limit:"Notebook-based research. Image restoration can alter content; OCR and factual preservation need separate evaluation.",glyph:"▧ → ▤"},
+"gender-debiasing":{approach:"NLP and embedding methods examine gender stereotypes in Bollywood plot summaries and explore mitigation.",limit:"Bias depends on the dataset, representation, and evaluation definition. Mitigation does not imply the removal of all stereotypes.",glyph:"words / context"},
+"promotion-optimization":{approach:"Gamma regression and SARIMAX explore promotional patterns and revenue trends in online retail data.",limit:"Observational modeling and forecasting do not by themselves establish causal promotional effects.",glyph:"▁ ▂ ▄ ▃ ▇"}
+};
+let activeFilter="All",activeChapter=0;
+function categories(p){const s=(p.tags.join(" ")+" "+p.name).toLowerCase();const c=[];if(/nlp|speech|recommend|transform|chatbot|language/.test(s))c.push("AI & NLP");if(/vision|ocr|gan/.test(s))c.push("Vision");if(/health|eeg|patient|neuro/.test(s))c.push("Healthcare");if(/series|sarimax|glm|eda|power bi|sql|database|algorithm/.test(s))c.push("Analytics");if(p.hasDemo)c.push("Walkthroughs");return c}
+function render(){const q=$("search").value.trim().toLowerCase();const visible=projects.filter(p=>(activeFilter==="All"||categories(p).includes(activeFilter))&&(!q||(p.name+" "+p.description+" "+p.tags.join(" ")).toLowerCase().includes(q)));$("count").textContent=visible.length+" of "+projects.length+" projects";
+$("project-grid").innerHTML=visible.map(p=>{const n=notes[p.id];const repo=p.repo?"https://github.com/MLAlchemy-cmd/"+encodeURIComponent(p.repo):null;return '<article class="project"><div class="project-art" aria-hidden="true"><div class="art-line"></div><span class="art-glyph">'+escapeText(n?.glyph||"data → insight")+'</span></div><div class="project-body"><span class="status">'+(p.hasDemo?"Interactive walkthrough":p.repo?"Research & code":"Project documentation")+'</span><h3>'+escapeText(p.name)+'</h3><div class="chips">'+p.tags.slice(0,3).map(t=>'<span class="chip">'+escapeText(t)+'</span>').join("")+'</div><p>'+escapeText(p.description)+'</p><div class="project-bottom"><button class="textbtn" data-case="'+escapeText(p.id)+'">Read project notes</button>'+(p.hasDemo?'<a href="'+escapeText(p.demoPath)+'">Explore walkthrough ↗</a>':repo?'<a href="'+repo+'" target="_blank" rel="noopener">Code ↗</a>':"")+'</div></div></article>'}).join("")||'<p>No matching projects. Try another keyword or category.</p>';
+}
+function stopAudio(){if("speechSynthesis" in window)window.speechSynthesis.cancel();$("stop").disabled=true;$("listen").disabled=!("speechSynthesis" in window);$("listen").textContent="Listen to this chapter ▷"}
+function chapter(index){stopAudio();activeChapter=index;document.querySelectorAll("[data-chapter]").forEach(b=>{const on=Number(b.dataset.chapter)===index;b.setAttribute("aria-selected",String(on));b.tabIndex=on?0:-1});$("chapter").setAttribute("aria-labelledby","chapter-tab-"+index);$("chapter-title").textContent=chapters[index].title;$("transcript").textContent=chapters[index].text;$("audio-note").textContent="Optional browser-generated narration; this is not a recording of my voice."}
+document.querySelectorAll("[data-chapter]").forEach(b=>{b.onclick=()=>chapter(Number(b.dataset.chapter));b.onkeydown=e=>{if(["ArrowDown","ArrowRight","ArrowUp","ArrowLeft","Home","End"].includes(e.key)){e.preventDefault();const next=e.key==="Home"?0:e.key==="End"?3:(activeChapter+(["ArrowDown","ArrowRight"].includes(e.key)?1:3))%4;chapter(next);$("chapter-tab-"+next).focus()}}});
+$("listen").onclick=()=>{if(!("speechSynthesis" in window))return;stopAudio();const utterance=new SpeechSynthesisUtterance(chapters[activeChapter].text);utterance.lang="en-US";utterance.rate=.94;utterance.onend=()=>stopAudio();utterance.onerror=()=>{stopAudio();$("audio-note").textContent="Audio could not play. The full transcript is available above."};$("listen").disabled=true;$("listen").textContent="Playing chapter…";$("stop").disabled=false;window.speechSynthesis.speak(utterance)};
+$("stop").onclick=stopAudio;window.addEventListener("pagehide",stopAudio);document.addEventListener("visibilitychange",()=>{if(document.hidden)stopAudio()});
+document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{activeFilter=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render()});$("search").addEventListener("input",render);
+let opener=null;
+$("project-grid").onclick=e=>{const b=e.target.closest("[data-case]");if(!b)return;const p=projects.find(p=>p.id===b.dataset.case);if(!p)return;const n=notes[p.id]||{approach:p.description,limit:"Explore the linked repository or project documents for implementation details. This page summarizes the project; it is not a hosted inference endpoint."};opener=b;
+$("case-content").innerHTML='<h2 id="case-title">'+escapeText(p.name)+'</h2><div class="chips">'+p.tags.map(t=>'<span class="chip">'+escapeText(t)+'</span>').join("")+'</div><h3>The question</h3><p>'+escapeText(p.description)+'</p><h3>The approach</h3><p>'+escapeText(n.approach)+'</p><h3>Scope & limitations</h3><p>'+escapeText(n.limit)+'</p><div class="actions">'+(p.repo?'<a class="btn" target="_blank" rel="noopener" href="https://github.com/MLAlchemy-cmd/'+encodeURIComponent(p.repo)+'">Explore repository ↗</a>':"")+(p.hasDemo?'<a class="btn secondary" href="'+escapeText(p.demoPath)+'">Open walkthrough ↗</a>':"")+["reportPath","posterPath","deckPath"].filter(k=>p[k]).map(k=>'<a class="btn secondary" href="'+escapeText(p[k])+'" target="_blank" rel="noopener">'+({reportPath:"Report",posterPath:"Poster",deckPath:"Deck"}[k])+' ↗</a>').join("")+'</div>';$("case-dialog").showModal()};
+$("close-case").onclick=()=>$("case-dialog").close();$("case-dialog").addEventListener("close",()=>opener?.focus());$("case-dialog").addEventListener("click",e=>{if(e.target===$("case-dialog")){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close()}});
+function setTheme(theme){document.documentElement.dataset.theme=theme;$("theme").setAttribute("aria-label","Switch to "+(theme==="dark"?"light":"dark")+" theme");try{localStorage.setItem("portfolio-theme",theme)}catch{}}
+try{setTheme(localStorage.getItem("portfolio-theme")||"light")}catch{setTheme("light")}
+$("theme").onclick=()=>setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+chapter(0);if(!("speechSynthesis" in window))$("audio-note").textContent="Your browser does not support narration. Read the full transcript above.";render();
+</script>
 </body>
 </html>
